@@ -1,0 +1,23 @@
+﻿<?xml version="1.0" encoding="utf-8" ?>
+<ContentPage xmlns="http://xamarin.com/schemas/2014/forms"
+             xmlns:x="http://schemas.microsoft.com/winfx/2009/xaml"
+             xmlns:d="http://xamarin.com/schemas/2014/forms/design"
+             xmlns:mc="http://schemas.openxmlformats.org/markup-compatibility/2006"
+             mc:Ignorable="d"
+             x:Class="App4.Views.GalleryPage">
+    <ContentPage.Content>
+        <StackLayout Margin="20">
+            <Label Text="Please press Select From Gallery" 
+                   HorizontalOptions="Center" 
+                   Style="{DynamicResource TitleStyle}" />
+            <Button Text="Select From Gallery" Clicked="BtnSelectGallery"/>
+            <Image x:Name="imgPhoto" WidthRequest="150" HeightRequest="150" />
+            <Button Text="Recognize Text" Clicked="BtnOCRAPIUrl"/>
+            
+            <StackLayout Orientation="Horizontal" Margin="5">
+                <Label x:Name="lblTexts" HorizontalOptions="CenterAndExpand"/>
+                <ImageButton x:Name="BtnCopy"  BackgroundColor="White" Clicked="BtnCopyClicked" Source="clipboard_copy.png" HorizontalOptions="End" />
+            </StackLayout>
+        </StackLayout>
+    </ContentPage.Content>
+</ContentPage>
