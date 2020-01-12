@@ -39,10 +39,10 @@ namespace App4.Views
             ItemsListView.SelectedItem = null;
         }
 
-        async void AddItem_Clicked(object sender, EventArgs e)
-        {
-            await Navigation.PushModalAsync(new NavigationPage(new NewItemPage()));
-        }
+       // async void AddItem_Clicked(object sender, EventArgs e)
+     //   {
+         //   await Navigation.PushModalAsync(new NavigationPage(new NewItemPage()));
+      //  }
 
         protected override void OnAppearing()
         {
@@ -51,5 +51,19 @@ namespace App4.Views
             if (viewModel.Items.Count == 0)
                 viewModel.LoadItemsCommand.Execute(null);
         }
+
+        async void Cancel_Clicked(object sender, EventArgs e)
+        {
+            await Navigation.PopModalAsync();
+        }
+        async void BtnDelete(object sender, EventArgs e)
+        {
+            Button btn = (Button)sender;
+            var id = btn.CommandParameter.ToString();
+            var note =await App.Database.GetNoteAsync(id);
+            await App.Database.DeleteNoteAsync(note);
+        }
+
+
     }
 }

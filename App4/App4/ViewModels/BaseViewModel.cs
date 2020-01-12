@@ -13,8 +13,8 @@ namespace App4.ViewModels
 {
     public class BaseViewModel : INotifyPropertyChanged
     {
-        public NoteDatabase noteDatabase => DependencyService.Get<NoteDatabase>();
-        public IDataStore<Item> DataStore => DependencyService.Get<IDataStore<Item>>();
+        public NoteDatabase NoteDatabase => DependencyService.Get<NoteDatabase>();
+       // public IDataStore<Item> DataStore => DependencyService.Get<IDataStore<Item>>();
 
         bool isBusy = false;
         public bool IsBusy

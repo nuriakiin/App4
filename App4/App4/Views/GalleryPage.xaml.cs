@@ -1,4 +1,5 @@
-﻿using App4.Services;
+﻿using App4.Models;
+using App4.Services;
 using Plugin.Media;
 using Plugin.Media.Abstractions;
 using System;
@@ -78,5 +79,14 @@ namespace App4.Views
                 await DisplayAlert("Success", string.Format("Text is copied to clipboard", text), "OK");
             }
         }
+        async void Clicked_History(Object sender, EventArgs e)
+        {
+            await Navigation.PushModalAsync(new NavigationPage(new ItemsPage()));
+        }
+        async void BtnSave(object sender , EventArgs e)
+        {
+            await Navigation.PushModalAsync(new NavigationPage(new NewItemPage(lblTexts.Text)));
+        }
     }
+    
 }

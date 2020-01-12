@@ -12,15 +12,7 @@ namespace App4.Services
 
         public MockDataStore()
         {
-            items = new List<Item>()
-            {
-                new Item { Id = Guid.NewGuid().ToString(), Title = "First item", Text="This is an item description." },
-                new Item { Id = Guid.NewGuid().ToString(), Title = "Second item", Text="This is an item description." },
-                new Item { Id = Guid.NewGuid().ToString(), Title = "Third item", Text="This is an item description." },
-                new Item { Id = Guid.NewGuid().ToString(), Title = "Fourth item", Text="This is an item description." },
-                new Item { Id = Guid.NewGuid().ToString(), Title = "Fifth item", Text="This is an item description." },
-                new Item { Id = Guid.NewGuid().ToString(), Title = "Sixth item", Text="This is an item description." }
-            };
+            
         }
 
         public async Task<bool> AddItemAsync(Item item)

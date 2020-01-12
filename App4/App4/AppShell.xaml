@@ -1,4 +1,4 @@
-<?xml version="1.0" encoding="UTF-8"?>
+<?xml version="1.0" encoding="utf-8"?>
 <Shell xmlns="http://xamarin.com/schemas/2014/forms" 
        xmlns:x="http://schemas.microsoft.com/winfx/2009/xaml"
        xmlns:d="http://xamarin.com/schemas/2014/forms/design"
@@ -13,26 +13,28 @@
     -->
     <Shell.Resources>
         <ResourceDictionary>
-            <Color x:Key="NavigationPrimary">#2196F3</Color>
+            <Color x:Key="NavigationPrimary">#FEFEFE</Color>
             <Style x:Key="BaseStyle" TargetType="Element">
                 <Setter Property="Shell.BackgroundColor" Value="{StaticResource NavigationPrimary}" />
-                <Setter Property="Shell.ForegroundColor" Value="Black" />
-                <Setter Property="Shell.TitleColor" Value="Purple" />
+                <Setter Property="Shell.ForegroundColor" Value="#ED6237" />
+                <Setter Property="Shell.TitleColor" Value="Black" />
                 <Setter Property="Shell.DisabledColor" Value="#B4FFFFFF" />
-                <Setter Property="Shell.UnselectedColor" Value="#95FFFFFF" />
+                <Setter Property="Shell.UnselectedColor" Value="#757575" />
                 <Setter Property="Shell.TabBarBackgroundColor" Value="{StaticResource NavigationPrimary}" />
-                <Setter Property="Shell.TabBarForegroundColor" Value="White"/>
-                <Setter Property="Shell.TabBarUnselectedColor" Value="#95FFFFFF"/>
-                <Setter Property="Shell.TabBarTitleColor" Value="White"/>
+                <Setter Property="Shell.TabBarForegroundColor" Value="#ED6237"/>
+                <Setter Property="Shell.TabBarUnselectedColor" Value="#757575"/>
+                <Setter Property="Shell.TabBarTitleColor" Value="#ED6237"/>
             </Style>
-            <Style TargetType="TabBar" BasedOn="{StaticResource BaseStyle}" />
+            <Style TargetType="ShellItem" BasedOn="{StaticResource BaseStyle}" />
+            <Style TargetType="TabBar" BasedOn="{StaticResource BaseStyle}"/>
+            
         </ResourceDictionary>
     </Shell.Resources>
 
-        <!-- Your Pages -->
-    <TabBar>
-        <Tab Title="URL" Icon="tab_feed.png">
-            <ShellContent ContentTemplate="{DataTemplate local:UrlPage}" />
+
+    <!-- <FlyoutItem Title="Menu">
+        <Tab Icon="tab_feed.png" Title="URL">
+            <ShellContent ContentTemplate="{DataTemplate local:UrlPage}"/>
         </Tab>
         <Tab Title="Camera" Icon="tab_about.png">
             <ShellContent ContentTemplate="{DataTemplate local:CameraPage}" />
@@ -40,8 +42,38 @@
         <Tab Title="Gallery" Icon="tab_about.png">
             <ShellContent ContentTemplate="{DataTemplate local:GalleryPage}" />
         </Tab>
+    </FlyoutItem>
+
+    <Shell.ItemTemplate>
+        <DataTemplate>
+            <Grid VerticalOptions="Start">
+                <Label Margin="10" Text="{Binding Title}"
+                       TextColor="Black"
+                       VerticalTextAlignment="Center"/>
+            </Grid>
+        </DataTemplate>
+    </Shell.ItemTemplate>  -->
+
+    <TabBar>
+        <Tab Title="URL" Icon="url_icon.png">
+            <ShellContent ContentTemplate="{DataTemplate local:UrlPage}" />
+        </Tab>
+        <Tab Title="Camera" Icon="camera_icon.png">
+            <ShellContent ContentTemplate="{DataTemplate local:CameraPage}" />
+        </Tab>
+        <Tab Title="Gallery" Icon="gallery_icon.png">
+            <ShellContent ContentTemplate="{DataTemplate local:GalleryPage}" />
+        </Tab>
     </TabBar>
 
+
+
+
+
+
+
+    <!-- 
+   -->
     <!-- Optional Templates 
     // These may be provided inline as below or as separate classes.
 

@@ -22,28 +22,32 @@ namespace App4.Data
             return _database.Table<Item>().ToListAsync();
         }
 
-        public Task<Item> GetNoteAsync(int id)
+        public Task<Item> GetNoteAsync(string id)
         {
+             
             return _database.Table<Item>()
-                            .Where(i => int.Parse(i.Id) == id)
+                            .Where(i => i.Id == id)
                             .FirstOrDefaultAsync();
         }
 
         public Task<int> SaveNoteAsync(Item note)
         {
-            if (int.Parse(note.Id) != 0)
-            {
-                return _database.UpdateAsync(note);
-            }
-            else
-            {
                 return _database.InsertAsync(note);
-            }
+        }
+        public Task<int> UpdateNoteAsync(Item note)
+        {
+            return _database.UpdateAsync(note);
         }
 
         public Task<int> DeleteNoteAsync(Item note)
         {
             return _database.DeleteAsync(note);
         }
+        public Task<int> DeleteAllNotesAsync()
+        {
+            return _database.ExecuteAsync("DELETE FROM NoteDatabase");
+        }
+
+
     }
 }

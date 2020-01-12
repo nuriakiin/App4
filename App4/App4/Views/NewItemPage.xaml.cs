@@ -15,14 +15,14 @@ namespace App4.Views
     {
         public Item Item { get; set; }
 
-        public NewItemPage()
+        public NewItemPage(string texts)
         {
             InitializeComponent();
 
             Item = new Item
             {
-                Title = "Item name",
-                Text = "This is an item description."
+                Title = "Note Name",
+                Text = texts
             };
 
             BindingContext = this;
@@ -30,7 +30,12 @@ namespace App4.Views
 
         async void Save_Clicked(object sender, EventArgs e)
         {
+
+            Item.Id = Guid.NewGuid().ToString();
+            await App.Database.SaveNoteAsync(Item);
+
             MessagingCenter.Send(this, "AddItem", Item);
+            
             await Navigation.PopModalAsync();
         }
 
